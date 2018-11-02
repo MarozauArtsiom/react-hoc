@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { MovieCard } from './movieCard';
 import { WithLoaderComponent } from './withLoader';
 
-const view = ({ films }) => (
+const movieView = ({ films }) => (
     <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         {
             films.map(film => (
@@ -14,9 +14,4 @@ const view = ({ films }) => (
     </div>
 );
 
-export const MovieView = WithLoaderComponent()(view)
-
-// @WithLoaderComponent()
-// export class MovieView extends Component {
-
-// }
+export const MovieView = WithLoaderComponent('MovieView')(movieView)

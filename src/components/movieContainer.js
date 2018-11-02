@@ -19,10 +19,12 @@ export class MovieContainer extends Component {
     }
     async loadMovies() {
         let res = await moviedbService.searchMovie({ query: 'Alien' });
-        this.setState({
-            films: res.results,
-            isLoading: false,
-        })
+        setTimeout(() => {
+            this.setState({
+                films: res.results,
+                isLoading: false,
+            })
+        }, 3000)
     }
     render() {
         return (

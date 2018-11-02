@@ -1,10 +1,13 @@
 import React from 'react';
+import { Loader } from './loader';
 
-export const WithLoaderComponent = () => {
+export const WithLoaderComponent = (displayName) => {
+
     return function withLoader(WrappedComponent) {
-        const loader = (props) => props.isLoading ?
-            (<div className="lds-heart"><div></div></div>)
+        const loaderHOC = (props) => props.isLoading ?
+            (<Loader />)
             : <WrappedComponent {...props}></WrappedComponent>
-        return loader;
+        // loader.displayName = `withLoader(${displayName})`
+        return loaderHOC;
     }
 }
